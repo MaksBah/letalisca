@@ -18,31 +18,37 @@ namespace letalisce2
         public Form1()
 
         {
-
             InitializeComponent();
 
-            using (NpgsqlConnection letalisce = new NpgsqlConnection("Server=rogue.db.elephantsql.com; User Id=bvcpwlka; Password=lrcOYxm8QZLEwrP7qt-qHH9j5xmuzEGL; Database=bvcpwlka"))
-            {
-                letalisce.Open();
-
-                using (NpgsqlCommand sql = new NpgsqlCommand("SELECT id FROM Kraj", letalisce))
-                {
-                    NpgsqlDataReader reader = sql.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        label1.Text += Convert.ToString(reader[1])+" ";
-                    }
-                }
-
-                letalisce.Close();
-
-                    
-            }
+            
         }
+        string connect = Baza.connect();
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+            using (NpgsqlConnection con = new NpgsqlConnection(connect))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM izpis;", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    dataGridView1.Rows.Add(new object[] { reader.GetString(1), reader.GetString(2), reader.GetString(3), "Klikni", reader.GetInt32(0) });
 
+                }
+                con.Close();
+            }
+
+        }
+
+        private void Dodaj_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            dodaj d = new dodaj();
+            d.Show();
+           
         }
     }
 }
