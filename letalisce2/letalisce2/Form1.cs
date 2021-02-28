@@ -31,11 +31,11 @@ namespace letalisce2
             using (NpgsqlConnection con = new NpgsqlConnection(connect))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM izpis;", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM izpletališča(1);", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    dataGridView1.Rows.Add(new object[] { reader.GetString(1), reader.GetString(2), reader.GetString(3), "Klikni", reader.GetInt32(0) });
+                    dataGridView1.Rows.Add(new object[] { reader.GetString(0), reader.GetString(1), reader.GetString(2) });
 
                 }
                 con.Close();
