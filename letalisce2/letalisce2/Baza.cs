@@ -26,8 +26,29 @@ namespace letalisce2
 
 
         }
+        public static List<string> kraji()
+        {
+            string connection = connect();
+            List<string> krajiizpis = new List<string>();
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM krajizpis();", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    string skp = reader.GetString(0) + "|" + reader.GetString(1);
+                    krajiizpis.Add(skp);
 
-        
+                }
+                con.Close();
+                return krajiizpis;
+
+            }
+        }
+        }
+
+
 
         public static bool vnosletal(string ime, string naslov, string druzba, string slika, string opis)
         {

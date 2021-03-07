@@ -16,25 +16,30 @@ namespace letalisce2
         {
             InitializeComponent();
         }
+        public void kraj()
+        {
+            List<string> krajizp = Baza.kraji();
+            foreach (string x in krajizp)
+            {
+                krajcombo.Items.Add(x);
+            }
+        }
 
         private void konbutton_Click(object sender, EventArgs e)
         {
             string imel = imelektext.Text;
-            string tel = teltext.Text;
-
-
             string naslov = naslovtext.Text;
+            string druzba = label7.Text;
             string[] k = krajcombo.SelectedItem.ToString().Split('|');
-            string kraj = k[0];
             string slika = slikabutton.Text;
             string opis = opistext.Text;
-            //bool ok = Baza.vnosletal(imel, naslov, druzba, slika, opis);
-            //if (ok == true)
-            //{
+            bool ok = Baza.vnosletal(imel, naslov, druzba, slika, opis);
+            if (ok == true)
+            {
                 MessageBox.Show("Vnos je bil uspešen");
                 this.Close();
-            //}
-            //else
+            }
+            else
             {
                 MessageBox.Show("Vnos ni bil uspešen");
                 imelektext.Text = "";
@@ -44,6 +49,16 @@ namespace letalisce2
                 slikabutton.Text = "Dodaj sliko";
                 opistext.Text = "";
             }
+            this.Hide();
+            Form1 f = new Form1();
+            f.Show();
+        }
+
+        private void dodaj_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
+            Form1 f = new Form1();
+            f.Show();
         }
     }
 }

@@ -42,12 +42,14 @@
             this.imelektext = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // konbutton
             // 
             this.konbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.konbutton.Location = new System.Drawing.Point(208, 403);
+            this.konbutton.Location = new System.Drawing.Point(208, 443);
             this.konbutton.Name = "konbutton";
             this.konbutton.Size = new System.Drawing.Size(261, 55);
             this.konbutton.TabIndex = 29;
@@ -59,7 +61,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(45, 273);
+            this.label6.Location = new System.Drawing.Point(45, 313);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 20);
             this.label6.TabIndex = 28;
@@ -109,7 +111,7 @@
             // opistext
             // 
             this.opistext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opistext.Location = new System.Drawing.Point(208, 270);
+            this.opistext.Location = new System.Drawing.Point(208, 310);
             this.opistext.Name = "opistext";
             this.opistext.Size = new System.Drawing.Size(261, 81);
             this.opistext.TabIndex = 22;
@@ -118,7 +120,7 @@
             // slikabutton
             // 
             this.slikabutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.slikabutton.Location = new System.Drawing.Point(208, 183);
+            this.slikabutton.Location = new System.Drawing.Point(208, 233);
             this.slikabutton.Name = "slikabutton";
             this.slikabutton.Size = new System.Drawing.Size(261, 51);
             this.slikabutton.TabIndex = 21;
@@ -176,11 +178,31 @@
             this.textBox1.Size = new System.Drawing.Size(261, 26);
             this.textBox1.TabIndex = 30;
             // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBox2.Location = new System.Drawing.Point(208, 184);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(261, 26);
+            this.textBox2.TabIndex = 32;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label7.Location = new System.Drawing.Point(45, 187);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 20);
+            this.label7.TabIndex = 33;
+            this.label7.Text = "Družba";
+            // 
             // dodaj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(528, 501);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.konbutton);
@@ -197,6 +219,7 @@
             this.Controls.Add(this.imelektext);
             this.Name = "dodaj";
             this.Text = "dodaj";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.dodaj_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,5 +240,7 @@
         private System.Windows.Forms.TextBox imelektext;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label7;
     }
 }
