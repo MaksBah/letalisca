@@ -37,7 +37,7 @@ namespace letalisce2
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
-                    string skp = reader.GetString(0) + "|" + reader.GetString(1);
+                    string skp = reader.GetString(0);
                     krajiizpis.Add(skp);
 
                 }
@@ -46,18 +46,38 @@ namespace letalisce2
 
             }
         }
+        public static List<string> druzba()
+        {
+            string connection = connect();
+            List<string> druzbeizpis = new List<string>();
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM druzbe;", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    string skp = reader.GetString(1);
+                    druzbeizpis.Add(skp);
+
+                }
+                con.Close();
+                return druzbeizpis;
+
+            }
         }
 
 
 
-        public static bool vnosletal(string ime, string naslov, string druzba, string slika, string opis)
+
+        public static bool Vnosletal(string ime, string naslov, string druzba, string opis, string kraj)
         {
             bool ok;
             string connection = connect();
             using (NpgsqlConnection con = new NpgsqlConnection(connection))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT vnosletal('" + ime + "','" + naslov + "','" + druzba + "','" + opis + "');", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT vnosletal('" + ime + "','" + naslov + "','" + kraj + "','" + druzba + "','" + opis + "');", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 reader.Read();
                 ok = reader.GetBoolean(0);

@@ -31,7 +31,7 @@ namespace letalisce2
             using (NpgsqlConnection con = new NpgsqlConnection(connect))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM izpletališča(1);", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM izpisletalisca();", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 while (reader.Read())
                 {
@@ -49,6 +49,11 @@ namespace letalisce2
             dodaj d = new dodaj();
             d.Show();
            
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

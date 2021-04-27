@@ -36,14 +36,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.opistext = new System.Windows.Forms.RichTextBox();
             this.slikabutton = new System.Windows.Forms.Button();
-            this.krajcombo = new System.Windows.Forms.ComboBox();
             this.naslovtext = new System.Windows.Forms.TextBox();
             this.teltext = new System.Windows.Forms.TextBox();
             this.imelektext = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.krajcombo = new System.Windows.Forms.ComboBox();
+            this.DruzbacomboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // konbutton
@@ -61,11 +61,12 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(45, 313);
+            this.label6.Location = new System.Drawing.Point(45, 258);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 20);
+            this.label6.Size = new System.Drawing.Size(102, 20);
             this.label6.TabIndex = 28;
-            this.label6.Text = "Opis slike";
+            this.label6.Text = "Opis letališča";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -111,7 +112,7 @@
             // opistext
             // 
             this.opistext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.opistext.Location = new System.Drawing.Point(208, 310);
+            this.opistext.Location = new System.Drawing.Point(208, 228);
             this.opistext.Name = "opistext";
             this.opistext.Size = new System.Drawing.Size(261, 81);
             this.opistext.TabIndex = 22;
@@ -120,21 +121,12 @@
             // slikabutton
             // 
             this.slikabutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.slikabutton.Location = new System.Drawing.Point(208, 233);
+            this.slikabutton.Location = new System.Drawing.Point(208, 349);
             this.slikabutton.Name = "slikabutton";
             this.slikabutton.Size = new System.Drawing.Size(261, 51);
             this.slikabutton.TabIndex = 21;
             this.slikabutton.Text = "Dodaj sliko";
             this.slikabutton.UseVisualStyleBackColor = true;
-            // 
-            // krajcombo
-            // 
-            this.krajcombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.krajcombo.FormattingEnabled = true;
-            this.krajcombo.Location = new System.Drawing.Point(208, 126);
-            this.krajcombo.Name = "krajcombo";
-            this.krajcombo.Size = new System.Drawing.Size(261, 28);
-            this.krajcombo.TabIndex = 20;
             // 
             // naslovtext
             // 
@@ -178,14 +170,6 @@
             this.textBox1.Size = new System.Drawing.Size(261, 26);
             this.textBox1.TabIndex = 30;
             // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBox2.Location = new System.Drawing.Point(208, 184);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(261, 26);
-            this.textBox2.TabIndex = 32;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -196,13 +180,31 @@
             this.label7.TabIndex = 33;
             this.label7.Text = "Družba";
             // 
+            // krajcombo
+            // 
+            this.krajcombo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.krajcombo.FormattingEnabled = true;
+            this.krajcombo.Location = new System.Drawing.Point(208, 126);
+            this.krajcombo.Name = "krajcombo";
+            this.krajcombo.Size = new System.Drawing.Size(261, 28);
+            this.krajcombo.TabIndex = 20;
+            // 
+            // DruzbacomboBox
+            // 
+            this.DruzbacomboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DruzbacomboBox.FormattingEnabled = true;
+            this.DruzbacomboBox.Location = new System.Drawing.Point(208, 179);
+            this.DruzbacomboBox.Name = "DruzbacomboBox";
+            this.DruzbacomboBox.Size = new System.Drawing.Size(261, 28);
+            this.DruzbacomboBox.TabIndex = 34;
+            // 
             // dodaj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(528, 501);
+            this.Controls.Add(this.DruzbacomboBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.konbutton);
@@ -234,13 +236,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox opistext;
         private System.Windows.Forms.Button slikabutton;
-        private System.Windows.Forms.ComboBox krajcombo;
         private System.Windows.Forms.TextBox naslovtext;
         private System.Windows.Forms.TextBox teltext;
         private System.Windows.Forms.TextBox imelektext;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox krajcombo;
+        private System.Windows.Forms.ComboBox DruzbacomboBox;
     }
 }

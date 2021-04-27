@@ -15,6 +15,8 @@ namespace letalisce2
         public dodaj()
         {
             InitializeComponent();
+            kraj();
+            druzba();
         }
         public void kraj()
         {
@@ -24,16 +26,24 @@ namespace letalisce2
                 krajcombo.Items.Add(x);
             }
         }
+        public void druzba()
+        {
+            List<string> druzbaizp = Baza.druzba();
+            foreach (string x in druzbaizp)
+            {
+                DruzbacomboBox.Items.Add(x);
+            }
+        }
 
         private void konbutton_Click(object sender, EventArgs e)
         {
-            string imel = imelektext.Text;
+            string imel = textBox1.Text;
             string naslov = naslovtext.Text;
-            string druzba = label7.Text;
-            string[] k = krajcombo.SelectedItem.ToString().Split('|');
+            string druzba = DruzbacomboBox.SelectedItem.ToString();
+            string kraj = krajcombo.SelectedItem.ToString();
             string slika = slikabutton.Text;
             string opis = opistext.Text;
-            bool ok = Baza.vnosletal(imel, naslov, druzba, slika, opis);
+            bool ok = Baza.Vnosletal(imel, naslov, druzba, opis, kraj);
             if (ok == true)
             {
                 MessageBox.Show("Vnos je bil uspešen");
@@ -59,6 +69,11 @@ namespace letalisce2
             
             Form1 f = new Form1();
             f.Show();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
