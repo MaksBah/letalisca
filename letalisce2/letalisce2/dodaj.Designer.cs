@@ -44,6 +44,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.krajcombo = new System.Windows.Forms.ComboBox();
             this.DruzbacomboBox = new System.Windows.Forms.ComboBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // konbutton
@@ -127,6 +128,7 @@
             this.slikabutton.TabIndex = 21;
             this.slikabutton.Text = "Dodaj sliko";
             this.slikabutton.UseVisualStyleBackColor = true;
+            this.slikabutton.Click += new System.EventHandler(this.slikabutton_Click);
             // 
             // naslovtext
             // 
@@ -198,6 +200,10 @@
             this.DruzbacomboBox.Size = new System.Drawing.Size(261, 28);
             this.DruzbacomboBox.TabIndex = 34;
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // dodaj
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -244,5 +250,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox krajcombo;
         private System.Windows.Forms.ComboBox DruzbacomboBox;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

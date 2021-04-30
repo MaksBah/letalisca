@@ -19,13 +19,19 @@ namespace letalisce2
 
         {
             InitializeComponent();
-
+            polnjenje();
             
         }
         string connect = Baza.connect();
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+
+        } 
+        public void polnjenje()
+        {
+            dataGridView1.AllowUserToAddRows = false;
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
             using (NpgsqlConnection con = new NpgsqlConnection(connect))
@@ -40,7 +46,6 @@ namespace letalisce2
                 }
                 con.Close();
             }
-
         }
 
         private void Dodaj_Click(object sender, EventArgs e)
@@ -52,6 +57,27 @@ namespace letalisce2
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string imel = Convert.ToString(dataGridView1.Rows[e.RowIndex].Cells[0].Value);
+            if (e.ColumnIndex == 4)
+            {
+                Baza.deleteletalisce(imel);
+                polnjenje();
+            }
+            if (e.ColumnIndex == 3)
+            {
+                Form2 form = new Form2(imel);
+                form.Show();
+                this.Hide();
+            }
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
 
         }

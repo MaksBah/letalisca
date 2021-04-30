@@ -30,11 +30,11 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Dodaj = new System.Windows.Forms.Button();
             this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naslov = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Družba = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Slika = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.Dodaj = new System.Windows.Forms.Button();
             this.DeleteColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +62,17 @@
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // Dodaj
+            // 
+            this.Dodaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Dodaj.Location = new System.Drawing.Point(12, 181);
+            this.Dodaj.Name = "Dodaj";
+            this.Dodaj.Size = new System.Drawing.Size(119, 43);
+            this.Dodaj.TabIndex = 2;
+            this.Dodaj.Text = "Dodaj Letališče";
+            this.Dodaj.UseVisualStyleBackColor = true;
+            this.Dodaj.Click += new System.EventHandler(this.Dodaj_Click);
+            // 
             // Ime
             // 
             this.Ime.HeaderText = "Ime letališča";
@@ -79,19 +90,8 @@
             // 
             // Slika
             // 
-            this.Slika.HeaderText = "Slika Letališča";
+            this.Slika.HeaderText = "Več podatkov";
             this.Slika.Name = "Slika";
-            // 
-            // Dodaj
-            // 
-            this.Dodaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Dodaj.Location = new System.Drawing.Point(12, 181);
-            this.Dodaj.Name = "Dodaj";
-            this.Dodaj.Size = new System.Drawing.Size(119, 43);
-            this.Dodaj.TabIndex = 2;
-            this.Dodaj.Text = "Dodaj Letališče";
-            this.Dodaj.UseVisualStyleBackColor = true;
-            this.Dodaj.Click += new System.EventHandler(this.Dodaj_Click);
             // 
             // DeleteColumn
             // 
@@ -108,6 +108,8 @@
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -43,7 +43,7 @@ namespace letalisce2
             string kraj = krajcombo.SelectedItem.ToString();
             string slika = slikabutton.Text;
             string opis = opistext.Text;
-            bool ok = Baza.Vnosletal(imel, naslov, druzba, opis, kraj);
+            bool ok = Baza.Vnosletal(imel, naslov, druzba,  opis, kraj, slika);
             if (ok == true)
             {
                 MessageBox.Show("Vnos je bil uspešen");
@@ -52,28 +52,52 @@ namespace letalisce2
             else
             {
                 MessageBox.Show("Vnos ni bil uspešen");
-                imelektext.Text = "";
-                teltext.Text = "";
+                textBox1.Text = "";
                 naslovtext.Text = "";
                 krajcombo.SelectedIndex = 0;
                 slikabutton.Text = "Dodaj sliko";
                 opistext.Text = "";
             }
             this.Hide();
-            Form1 f = new Form1();
-            f.Show();
+            
         }
 
         private void dodaj_FormClosed(object sender, FormClosedEventArgs e)
         {
-            
             Form1 f = new Form1();
             f.Show();
+
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void slikabutton_Click(object sender, EventArgs e)
+        {
+            openFileDialog1 = new OpenFileDialog();
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string fileend = @"C:\Users\maksb\Source\Repos\letalisca\letalisca\slike";
+                    string filepath = openFileDialog1.FileName;
+                    string[] lol = filepath.Split('\\');
+                    int fin = lol.Length - 1;
+                    string filename = lol[fin];
+                    fileend = fileend + "\\" + filename;
+                    System.IO.File.Copy(filepath, fileend, true);
+                    slikabutton.Text = fileend;
+
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
         }
     }
 }

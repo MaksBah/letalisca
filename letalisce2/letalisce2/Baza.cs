@@ -70,14 +70,14 @@ namespace letalisce2
 
 
 
-        public static bool Vnosletal(string ime, string naslov, string druzba, string opis, string kraj)
+        public static bool Vnosletal(string ime, string naslov, string druzba, string opis, string kraj, string slika)
         {
             bool ok;
             string connection = connect();
             using (NpgsqlConnection con = new NpgsqlConnection(connection))
             {
                 con.Open();
-                NpgsqlCommand com = new NpgsqlCommand("SELECT vnosletal('" + ime + "','" + naslov + "','" + kraj + "','" + druzba + "','" + opis + "');", con);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT vnosletal('" + ime + "','" + naslov + "','" + kraj + "','" + druzba + "','" + opis + "','" + slika + "');", con);
                 NpgsqlDataReader reader = com.ExecuteReader();
                 reader.Read();
                 ok = reader.GetBoolean(0);
@@ -87,5 +87,19 @@ namespace letalisce2
 
 
         }
+        public static void deleteletalisce(string imel)
+        {
+            string connection = connect();
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT deleteletalisce('" + imel + "')", con);
+                com.ExecuteNonQuery();
+
+
+                con.Close();
+            }
+        }
+
     }
 }
