@@ -81,7 +81,7 @@ namespace letalisce2
             {
                 try
                 {
-                    string fileend = @"C:\Users\maksb\Source\Repos\letalisca\letalisca\slike";
+                    string fileend = @"C:\Users\tilen\Pictures\maks";
                     string filepath = openFileDialog1.FileName;
                     string[] lol = filepath.Split('\\');
                     int fin = lol.Length - 1;
@@ -98,6 +98,11 @@ namespace letalisce2
                     MessageBox.Show(ex.ToString());
                 }
             }
+        }
+
+        private void dodaj_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

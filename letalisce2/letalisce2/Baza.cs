@@ -100,6 +100,26 @@ namespace letalisce2
                 con.Close();
             }
         }
+        public static List<string> Uredi(int id)
+        {
+            string connection = connect();
+            List<string> druzbeizpis = new List<string>();
+            using (NpgsqlConnection con = new NpgsqlConnection(connection))
+            {
+                con.Open();
+                NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM druzbe;", con);
+                NpgsqlDataReader reader = com.ExecuteReader();
+                while (reader.Read())
+                {
+                    string skp = reader.GetString(1);
+                    druzbeizpis.Add(skp);
+
+                }
+                con.Close();
+                return druzbeizpis;
+
+            }
+        }
 
     }
 }

@@ -36,15 +36,17 @@
             this.Družba = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Slika = new System.Windows.Forms.DataGridViewButtonColumn();
             this.DeleteColumn = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Uredi = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(336, 73);
+            this.label1.Location = new System.Drawing.Point(504, 112);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.Size = new System.Drawing.Size(0, 20);
             this.label1.TabIndex = 0;
             // 
             // dataGridView1
@@ -55,19 +57,23 @@
             this.Naslov,
             this.Družba,
             this.Slika,
-            this.DeleteColumn});
-            this.dataGridView1.Location = new System.Drawing.Point(160, 37);
+            this.DeleteColumn,
+            this.Uredi});
+            this.dataGridView1.Location = new System.Drawing.Point(98, 112);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(543, 370);
+            this.dataGridView1.RowHeadersWidth = 62;
+            this.dataGridView1.Size = new System.Drawing.Size(965, 569);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Dodaj
             // 
             this.Dodaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Dodaj.Location = new System.Drawing.Point(12, 181);
+            this.Dodaj.Location = new System.Drawing.Point(435, 25);
+            this.Dodaj.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Dodaj.Name = "Dodaj";
-            this.Dodaj.Size = new System.Drawing.Size(119, 43);
+            this.Dodaj.Size = new System.Drawing.Size(178, 66);
             this.Dodaj.TabIndex = 2;
             this.Dodaj.Text = "Dodaj Letališče";
             this.Dodaj.UseVisualStyleBackColor = true;
@@ -76,36 +82,54 @@
             // Ime
             // 
             this.Ime.HeaderText = "Ime letališča";
+            this.Ime.MinimumWidth = 8;
             this.Ime.Name = "Ime";
+            this.Ime.Width = 150;
             // 
             // Naslov
             // 
             this.Naslov.HeaderText = "Naslov";
+            this.Naslov.MinimumWidth = 8;
             this.Naslov.Name = "Naslov";
+            this.Naslov.Width = 150;
             // 
             // Družba
             // 
             this.Družba.HeaderText = "Družbe";
+            this.Družba.MinimumWidth = 8;
             this.Družba.Name = "Družba";
+            this.Družba.Width = 150;
             // 
             // Slika
             // 
             this.Slika.HeaderText = "Več podatkov";
+            this.Slika.MinimumWidth = 8;
             this.Slika.Name = "Slika";
+            this.Slika.Width = 150;
             // 
             // DeleteColumn
             // 
             this.DeleteColumn.HeaderText = "Delete";
+            this.DeleteColumn.MinimumWidth = 8;
             this.DeleteColumn.Name = "DeleteColumn";
+            this.DeleteColumn.Width = 150;
+            // 
+            // Uredi
+            // 
+            this.Uredi.HeaderText = "uredi";
+            this.Uredi.MinimumWidth = 8;
+            this.Uredi.Name = "Uredi";
+            this.Uredi.Width = 150;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(751, 450);
+            this.ClientSize = new System.Drawing.Size(1126, 692);
             this.Controls.Add(this.Dodaj);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
@@ -127,6 +151,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Družba;
         private System.Windows.Forms.DataGridViewButtonColumn Slika;
         private System.Windows.Forms.DataGridViewButtonColumn DeleteColumn;
+        private System.Windows.Forms.DataGridViewButtonColumn Uredi;
     }
 }
 

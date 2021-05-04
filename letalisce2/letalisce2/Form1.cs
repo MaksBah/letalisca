@@ -70,6 +70,11 @@ namespace letalisce2
                 form.Show();
                 this.Hide();
             }
+            if (e.ColumnIndex == 5)
+            {
+                Baza.deleteletalisce(imel);
+                polnjenje();
+            }
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
